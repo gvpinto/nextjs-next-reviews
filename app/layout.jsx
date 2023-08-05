@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import './globals.css';
 import NavBar from '@/components/NavBar';
+import { orbitron } from './fonts';
+import './globals.css';
 
 export default function RootLayout({ children }) {
     return (
