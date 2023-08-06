@@ -2,9 +2,9 @@ import Header from "@/components/Header";
 import { getReviews } from "@/lib/reviews";
 
 
-async function StardewValleyPage() {
+export default async function ReviewsPage({ params: { slug } }) {
 
-    const reviews = await getReviews('stardew-valley');
+    const reviews = await getReviews(slug);
 
     return (
         <>
@@ -19,5 +19,3 @@ async function StardewValleyPage() {
         </>
     );
 }
-
-export default StardewValleyPage;
