@@ -1,13 +1,20 @@
 import Header from "@/components/Header";
+import { getReviews } from "@/lib/reviews";
 
-function StardewValleyPage() {
+
+async function StardewValleyPage() {
+
+    const reviews = await getReviews('stardew-valley');
+
     return (
         <>
-            <Header>Stardew Valley</Header>
-            <img src="/images/stardew-valley.jpg" alt="" className="mb-3 rounded" width="640" height="360" />
-            <p>
-                This will be the review for Stardew Valley
-            </p>
+            <Header>{reviews.title}</Header>
+            <p className='italic pb-2'>{reviews.date}</p>
+            <img src={reviews.image} alt="" className="mb-3 rounded" width="640" height="360" />
+
+            <article dangerouslySetInnerHTML={{ __html: reviews.body }}
+                className='prose prose-slate max-w-screen-sm'
+            />
 
         </>
     );
