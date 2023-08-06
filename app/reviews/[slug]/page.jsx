@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
-import { getReviews } from "@/lib/reviews";
+import { getReview } from "@/lib/reviews";
 
 
 export default async function ReviewsPage({ params: { slug } }) {
 
-    const reviews = await getReviews(slug);
+    const reviews = await getReview(slug);
 
     return (
         <>

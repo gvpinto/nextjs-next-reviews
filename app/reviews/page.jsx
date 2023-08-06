@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import Header from '@/components/Header';
+import { getReviews } from '@/lib/reviews';
 
-function ReviewsPage() {
+export default async function ReviewsPage() {
+
+    const reviews = await getReviews();
+    console.log("Reviews: ", reviews);
+
     return (
         <>
             <Header>Reviews</Header>
@@ -26,4 +31,3 @@ function ReviewsPage() {
     );
 }
 
-export default ReviewsPage;
