@@ -5,11 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import { getFeatureReview } from '@/lib/reviews';
 
-export const metadata = {
-    title: 'Indie Gamer',
-    // description: ''
-};
-
 async function HomePage() {
 
     console.log('[HomePage] rendering');

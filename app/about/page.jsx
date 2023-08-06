@@ -1,5 +1,9 @@
 import Header from "../../components/Header";
 
+export const metadata = {
+    title: 'About'
+};
+
 function AboutPage() {
     return (
         <>
