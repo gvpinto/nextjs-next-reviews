@@ -1,8 +1,21 @@
 import Header from "@/components/Header";
-import { getReview } from "@/lib/reviews";
+import { getReview, getSlugs } from "@/lib/reviews";
+
+export async function generateStaticParams() {
+
+    const slugs = await getSlugs();
+
+    return slugs.map((slug) => ({ slug }));
+    // return [
+    //     { slug: 'hellblade' },
+    //     { slug: 'hollow-knight' }
+    // ];
+}
 
 
 export default async function ReviewsPage({ params: { slug } }) {
+
+    console.log("Rendering ReviewsPage: ", slug);
 
     const reviews = await getReview(slug);
 
