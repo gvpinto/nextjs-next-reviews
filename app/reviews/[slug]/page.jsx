@@ -12,20 +12,27 @@ export async function generateStaticParams() {
     // ];
 }
 
+export async function generateMetadata({ params: { slug } }) {
+    const review = await getReview(slug);
+    return {
+        title: review.title
+    };
+}
 
-export default async function ReviewsPage({ params: { slug } }) {
 
-    console.log("Rendering ReviewsPage: ", slug);
+export default async function ReviewPage({ params: { slug } }) {
 
-    const reviews = await getReview(slug);
+    console.log("Rendering ReviewPage: ", slug);
+
+    const review = await getReview(slug);
 
     return (
         <>
-            <Header>{reviews.title}</Header>
-            <p className='italic pb-2'>{reviews.date}</p>
-            <img src={reviews.image} alt="" className="mb-3 rounded" width="640" height="360" />
+            <Header>{review.title}</Header>
+            <p className='italic pb-2'>{review.date}</p>
+            <img src={review.image} alt="" className="mb-3 rounded" width="640" height="360" />
 
-            <article dangerouslySetInnerHTML={{ __html: reviews.body }}
+            <article dangerouslySetInnerHTML={{ __html: review.body }}
                 className='prose prose-slate max-w-screen-sm'
             />
 
