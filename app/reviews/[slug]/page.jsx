@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import { getReview, getSlugs } from "@/lib/reviews";
+import ShareButtonLink from "@/components/ShareButtonLink";
 
 export async function generateStaticParams() {
 
@@ -29,7 +30,10 @@ export default async function ReviewPage({ params: { slug } }) {
     return (
         <>
             <Header>{review.title}</Header>
-            <p className='italic pb-2'>{review.date}</p>
+            <div className="flex gap-3 items-baseline">
+                <p className='italic pb-2'>{review.date}</p>
+                <ShareButtonLink />
+            </div>
             <img src={review.image} alt="" className="mb-3 rounded" width="640" height="360" />
 
             <article dangerouslySetInnerHTML={{ __html: review.body }}
