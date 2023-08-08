@@ -24,7 +24,7 @@ function ShareButtonLink() {
             onClick={handleClick}
         >
             <LinkIcon className="h-4 w-4" />
-            {clicked ? 'Link Copied' : 'ShareLink'}
+            {clicked ? 'Link Copied!' : 'Share Link'}
         </button>
     );
 }
