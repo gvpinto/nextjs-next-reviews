@@ -4,6 +4,8 @@ import { useState } from "react";
 
 function ShareButtonLink() {
 
+    console.log("Rendering: ShareButtonLink");
+
     const [clicked, setClicked] = useState(false);
 
     const handleClick = () => {
